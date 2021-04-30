@@ -7,6 +7,8 @@
 import pandas as pd #import the dataframe builder
 
 import argparse #import program to write user-friendly command-line interfaces
+
+#if __name__ == 'main': WHAT DO WE DO WITH THIS WHERE DOES IT GO???
 parser = argparse.ArgumentParser()
 parser.add_argument('-read') #after -read you can put the read value when you run the program
 parser.add_argument('-k') #after -k you can put the k value when you run the program
@@ -37,6 +39,8 @@ def count_kmers_observed(read, k):
  
 #print(len(count_kmers_observed(read, k))), print("is the kmers of size k")
 
+  
+
 # function to count possible kmers
 #num_kmers = []
 def count_kmers_possible(read, k):
@@ -53,6 +57,7 @@ def count_kmers_possible(read, k):
 
 #### Question 2 #####
 ## function to create pandas df of possible and observed kmers ##
+
 def create_panda(read):
   '''
   This function creates the pandas dataframe for the number of k, observed kmers, and possible kmers
@@ -67,14 +72,13 @@ def create_panda(read):
   for i in k_values:
     possible_kmers.append(count_kmers_possible(read, i))
   df = pd.DataFrame(list(zip(k_values, observed_kmers, possible_kmers)), columns = ['k','observed kmers','possible kmers'])
-  df.at['Total', 'observed kmers'] = df['observed kmers'].sum()
-  df.at['Total', 'possible kmers'] = df['possible kmers'].sum()
+  df.at['Total', 'observed kmers'] = df['observed kmers'].sum() #add total observed kmer value
+  df.at['Total', 'possible kmers'] = df['possible kmers'].sum() #add total possible kmer value
   return df
 create_panda(read)
 
-
-
 #### Question 3 ####
+#function to calculate total linguistic complexity (total observed/ total possible)
 def calculate_LC(read):
   '''
   This function calculates the total linguistic complexity which is the total observed kmers divided by the total posssible kmers
@@ -98,6 +102,7 @@ def calculate_LC(read):
   return LC
 calculate_LC(read)
 
+
 #### Question 4 Be sure that all your functions have appropriate docstrings ####
 
 #### Question 5 ####
@@ -110,25 +115,33 @@ def main():
   '''
   with open("linguistic_complexity.txt",'a+') as f: #open file and use append and read mode
     f.seek(0) #move cursor to start of file
-    data= f.read(100) #if file is not empty then append '\n'
-    if len(data) >0 :
+    data= f.read() #scan through the file to see if there is information there
+    if len(data) >0 : #if file is not empty then append '\n' or at the end
       f.write("\n")
     LingC = calculate_LC(read)
-    f.write(str(LingC)) #append at the end of the file
+    f.write(str(LingC)) #append the LingC (LC) value
     f.close()
-  with open("dataframe.csv", 'a+') as f2:
-    panda = create_panda(read)
-    f2.seek(0)
-    data = f2.read(100)
-    if len(data) >0 :
-      f2.write("\n")
-    panda.to_csv('dataframe.csv')
-    f2.close()
+  panda = create_panda(read)
+  panda.to_csv('dataframe.csv', mode ='a+') #open and append to pandas dataframe
     
 main()
 
-#6. Write a script to thoroughly test each of your functions.
-#7. Include thorough comments for all of your code.
-#8. Create a github repository including a README (in markdown) to submit your work.
+#putting the functions into a block to allow/prevent parts of code from being run if file is imported into another as a module
+if __name__ == '__main__':
+    count_kmers_observed(read,k)
+    count_kmers_possible(read,k)
+    create_panda(read)
+    calculate_LC(read)
+    main()
+
+
+#### Question 6 ####
+#Script to thoroughly test each of your functions: .py
+
+
+
+#### Question 7 --Comments  included thorughout code ####
+
+#### Question 8 --github repository created with README ####
 
 
