@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
+#this script will tell you all the observed kmers and possible kmers
 #Example how to use: python3 exam4.py -read ATTTGGATT -k 3
+#run the script in the command line and change the read and k to get different results
 
 import pandas as pd #import the dataframe builder
 
@@ -102,15 +104,26 @@ calculate_LC(read)
 #Use the main function in your script to read in your file and output results to files
 
 def main():
-  #fn = open("input.txt","r+") #DOES SHE WANT THE READ AND K VALUES TO COME FROM THIS FILE INSTEAD OF THE COMMAND LINE????
-  f = open("linguistic_complexity.txt",'a+')
-  LingC = calculate_LC(read)
-  f.write(str(LingC))
-  f.close()
-  f2 = open("dataframe.csv", 'a+')
-  panda = create_panda(read)
-  panda.to_csv('dataframe.csv')
-  f2.close()
+  '''
+  This function is used to save the output from the input that is typed on the command line. 
+  It saves the output into two files, one for linguistic complexity and one for the dataframe.
+  '''
+  with open("linguistic_complexity.txt",'a+') as f: #open file and use append and read mode
+    f.seek(0) #move cursor to start of file
+    data= f.read(100) #if file is not empty then append '\n'
+    if len(data) >0 :
+      f.write("\n")
+    LingC = calculate_LC(read)
+    f.write(str(LingC)) #append at the end of the file
+    f.close()
+  with open("dataframe.csv", 'a+') as f2:
+    panda = create_panda(read)
+    f2.seek(0)
+    data = f2.read(100)
+    if len(data) >0 :
+      f2.write("\n")
+    panda.to_csv('dataframe.csv')
+    f2.close()
     
 main()
 
