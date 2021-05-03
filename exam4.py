@@ -16,6 +16,7 @@ if __name__ == '__main__':
   read = args.read #the read value will come from what the user enters
   k = int(args.k) #the k value as an integer will be what the user enters
 
+  
 #different method of how to input the info into the command line:
 #read = input("Enter read: ")
 #k= int(input("Enter k: "))
@@ -107,23 +108,24 @@ def calculate_LC(read):
 #### Question 5 ####
 #Use the main function in your script to read in your file and output results to files
 
-def main():
-  '''
-  This function is used to save the output from the input that is typed on the command line. 
-  It saves the output into two files, one for linguistic complexity and one for the dataframe.
-  '''
-  with open("linguistic_complexity.txt",'a+') as f: #open file and use append and read mode
-    f.seek(0) #move cursor to start of file
-    data= f.read() #scan through the file to see if there is information there
-    if len(data) >0 : #if file is not empty then append '\n' or at the end
-      f.write("\n")
-    LingC = calculate_LC(read)
-    f.write(str(LingC)) #append the LingC (LC) value
-    f.close()
-  panda = create_panda(read)
-  panda.to_csv('dataframe.csv', mode ='a+') #open and append to pandas dataframe
+if __name__ == '__main__':
+  def main():
+    '''
+    This function is used to save the output from the input that is typed on the command line. 
+    It saves the output into two files, one for linguistic complexity and one for the dataframe.
+    '''
+    with open("linguistic_complexity.txt",'a+') as f: #open file and use append and read mode
+      f.seek(0) #move cursor to start of file
+      data= f.read() #scan through the file to see if there is information there
+      if len(data) >0 : #if file is not empty then append '\n' or at the end
+        f.write("\n")
+      LingC = calculate_LC(read)
+      f.write(str(LingC)) #append the LingC (LC) value
+      f.close()
+    panda = create_panda(read)
+    panda.to_csv('dataframe.csv', mode ='a+') #open and append to pandas dataframe
     
-main()
+  main()
 
 #putting the functions into a block to allow/prevent parts of code from being run if file is imported into another as a module
 #if __name__ == '__main__':
@@ -138,8 +140,6 @@ main()
   
 #### Question 6 ####
 #Script to thoroughly test each of your functions: test_exam4.py
-
-
 
 #### Question 7 --Comments  included thorughout code ####
 
