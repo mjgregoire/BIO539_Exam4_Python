@@ -18,10 +18,6 @@ if __name__ == '__main__':
   k = int(args.k) #the k value as an integer will be what the user enters
 
   
-#different method of how to input the info into the command line:
-#read = input("Enter read: ")
-#k= int(input("Enter k: "))
-
 
 #### Question 1 ####
 ## function to count observed kmers (COUNT KMERS OF SIZE K) ##
@@ -77,6 +73,8 @@ def create_panda(read):
   return df
 #create_panda(read)
 
+
+
 #### Question 3 ####
 ##function to calculate total linguistic complexity (total observed/ total possible)##
 def calculate_LC(read):
@@ -104,6 +102,7 @@ def calculate_LC(read):
 
 
 #### Question 4 Be sure that all your functions have appropriate docstrings ####
+
 
 #### Question 5 ####
 #Use the main function in your script to read in your file and output results to files
