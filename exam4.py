@@ -8,14 +8,14 @@ import pandas as pd #import the dataframe builder
 
 import argparse #import program to write user-friendly command-line interfaces
 
-#if __name__ == 'main': WHAT DO WE DO WITH THIS WHERE DOES IT GO???
-parser = argparse.ArgumentParser()
-parser.add_argument('-read') #after -read you can put the read value when you run the program
-parser.add_argument('-k') #after -k you can put the k value when you run the program
-args = parser.parse_args() 
-
-read = args.read #the read value will come from what the user enters
-k = int(args.k) #the k value as an integer will be what the user enters
+if __name__ == '__main__':
+  parser = argparse.ArgumentParser()
+  parser.add_argument('-read') #after -read you can put the read value when you run the program
+  parser.add_argument('-k') #after -k you can put the k value when you run the program
+  args = parser.parse_args() 
+  read = args.read #the read value will come from what the user enters
+  k = int(args.k) #the k value as an integer will be what the user enters
+  
 
 #different method of how to input the info into the command line:
 #read = input("Enter read: ")
@@ -75,7 +75,7 @@ def create_panda(read):
   df.at['Total', 'observed kmers'] = df['observed kmers'].sum() #add total observed kmer value
   df.at['Total', 'possible kmers'] = df['possible kmers'].sum() #add total possible kmer value
   return df
-create_panda(read)
+#create_panda(read)
 
 #### Question 3 ####
 #function to calculate total linguistic complexity (total observed/ total possible)
@@ -100,7 +100,7 @@ def calculate_LC(read):
   LC =  (x/y)
   #print(LC), print("is the linguistic complexity") 
   return LC
-calculate_LC(read)
+#calculate_LC(read)
 
 
 #### Question 4 Be sure that all your functions have appropriate docstrings ####
@@ -128,20 +128,20 @@ main()
 
 #putting the functions into a block to allow/prevent parts of code from being run if file is imported into another as a module
 if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-read') #after -read you can put the read value when you run the program
+    parser.add_argument('-k') #after -k you can put the k value when you run the program
+    args = parser.parse_args() 
     count_kmers_observed(read,k)
     count_kmers_possible(read,k)
     create_panda(read)
     calculate_LC(read)
-    main()
-
-
+  
 #### Question 6 ####
-#Script to thoroughly test each of your functions: .py
+#Script to thoroughly test each of your functions: test_exam4.py
 
 
 
 #### Question 7 --Comments  included thorughout code ####
 
 #### Question 8 --github repository created with README ####
-
-
