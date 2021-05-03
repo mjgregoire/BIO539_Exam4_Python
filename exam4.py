@@ -15,7 +15,6 @@ if __name__ == '__main__':
   args = parser.parse_args() 
   read = args.read #the read value will come from what the user enters
   k = int(args.k) #the k value as an integer will be what the user enters
-  
 
 #different method of how to input the info into the command line:
 #read = input("Enter read: ")
@@ -127,15 +126,15 @@ def main():
 main()
 
 #putting the functions into a block to allow/prevent parts of code from being run if file is imported into another as a module
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser()
-    parser.add_argument('-read') #after -read you can put the read value when you run the program
-    parser.add_argument('-k') #after -k you can put the k value when you run the program
-    args = parser.parse_args() 
-    count_kmers_observed(read,k)
-    count_kmers_possible(read,k)
-    create_panda(read)
-    calculate_LC(read)
+#if __name__ == '__main__':
+    #parser = argparse.ArgumentParser()
+   # parser.add_argument('-read') #after -read you can put the read value when you run the program
+   # parser.add_argument('-k') #after -k you can put the k value when you run the program
+   # args = parser.parse_args() 
+   # count_kmers_observed(read,k)
+   # count_kmers_possible(read,k)
+   # create_panda(read)
+   # calculate_LC(read)
   
 #### Question 6 ####
 #Script to thoroughly test each of your functions: test_exam4.py
