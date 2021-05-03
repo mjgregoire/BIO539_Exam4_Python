@@ -8,6 +8,7 @@ import pandas as pd #import the dataframe builder
 
 import argparse #import program to write user-friendly command-line interfaces
 
+#putting the arguments section into a block to prevent the code from being run if file is imported into another as a module
 if __name__ == '__main__':
   parser = argparse.ArgumentParser()
   parser.add_argument('-read') #after -read you can put the read value when you run the program
@@ -107,7 +108,8 @@ def calculate_LC(read):
 
 #### Question 5 ####
 #Use the main function in your script to read in your file and output results to files
-
+#putting the main function into a block to prevent from being run if file is imported into another as a module
+#this needs to be separate from the first if __name__== '__main__' section because this needs the arguments from the first to run throughout the script
 if __name__ == '__main__':
   def main():
     '''
@@ -127,17 +129,7 @@ if __name__ == '__main__':
     
   main()
 
-#putting the functions into a block to allow/prevent parts of code from being run if file is imported into another as a module
-#if __name__ == '__main__':
-    #parser = argparse.ArgumentParser()
-   # parser.add_argument('-read') #after -read you can put the read value when you run the program
-   # parser.add_argument('-k') #after -k you can put the k value when you run the program
-   # args = parser.parse_args() 
-   # count_kmers_observed(read,k)
-   # count_kmers_possible(read,k)
-   # create_panda(read)
-   # calculate_LC(read)
-  
+
 #### Question 6 ####
 #Script to thoroughly test each of your functions: test_exam4.py
 
