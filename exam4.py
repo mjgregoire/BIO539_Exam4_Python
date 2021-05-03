@@ -24,7 +24,7 @@ if __name__ == '__main__':
 
 
 #### Question 1 ####
-# function to count observed kmers (COUNT KMERS OF SIZE K) 
+## function to count observed kmers (COUNT KMERS OF SIZE K) ##
 def count_kmers_observed(read, k):
   '''
   This function is used to count kmers of size k. It will tell you the number of observed kmers
@@ -43,15 +43,14 @@ def count_kmers_observed(read, k):
   
 
 # function to count possible kmers
-#num_kmers = []
 def count_kmers_possible(read, k):
   '''
   This function will count the number of all possible kmers
   '''
-  num_kmers = {}
-  num_kmers1 = len(read) - k + 1
-  num_kmers2 = 4**k
-  num_kmers = min(num_kmers1,num_kmers2)
+  num_kmers = {} #Start with an empty dictionary
+  num_kmers1 = len(read) - k + 1 #Calculate how many kmers of length k there are
+  num_kmers2 = 4**k #Another way to calculate the number of possible kmers
+  num_kmers = min(num_kmers1,num_kmers2) #the real number of possible kmers is the lesser of the two 
   return num_kmers
 
 
@@ -79,7 +78,7 @@ def create_panda(read):
 #create_panda(read)
 
 #### Question 3 ####
-#function to calculate total linguistic complexity (total observed/ total possible)
+##function to calculate total linguistic complexity (total observed/ total possible)##
 def calculate_LC(read):
   '''
   This function calculates the total linguistic complexity which is the total observed kmers divided by the total posssible kmers
@@ -131,7 +130,7 @@ if __name__ == '__main__':
 
 
 #### Question 6 ####
-#Script to thoroughly test each of your functions: test_exam4.py
+##Script to thoroughly test each of your functions: test_exam4.py ##
 
 #### Question 7 --Comments  included thorughout code ####
 
