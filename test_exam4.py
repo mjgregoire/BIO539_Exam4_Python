@@ -7,7 +7,7 @@ def test_count_kmers_observed():
   '''
   This function is used to test the count kmers of size k function. 
   '''
-  actual_result = count_kmers_observed(read,k) 
+  actual_result = len(count_kmers_observed(read, k)) 
   expected_result = 6
   assert actual_result == expected_result
   
@@ -25,10 +25,12 @@ def test_create_panda():
   '''
   This function creates the pandas dataframe for the number of k, observed kmers, and possible kmers
   '''
-  actual_result = create_panda(read)
-  expected_result = ({'k': [1,2,3,4,5,6,7,8,9],'observed kmers': [3,5,6,6,5,4,3,2,1,35], 'possible kmers':[4,8,7,6,5,4,3,2,1,40]})
-  assert actual_result == expected_result
-
+  #actual_result = create_panda(read)
+  expected_result = pd.DataFrame(list(zip([1,2,3,4,5,6,7,8,9], [3,5,6,6,5,4,3,2,1,35], [4,8,7,6,5,4,3,2,1,40])), columns = ['k','observed kmers','possible kmers'])
+  expected_result.at['Total', 'observed kmers'] = expected_result['observed kmers'].sum() 
+  expected_result.at['Total', 'possible kmers'] = expected_result['possible kmers'].sum()
+  
+  create_panda(read).eq(expected_result)
 
 
 def test_calculate_LC():
