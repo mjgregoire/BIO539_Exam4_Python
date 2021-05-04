@@ -5,6 +5,14 @@ from exam4 import *
 read = "ATTTGGATT"
 k = 3
 
+#testing if the input read is wrong -this script will only test for the letters of DNA: A, T, G, C
+import re
+import sys
+#input_str = raw_input("Please provide some info: ")
+if not re.match("^[c('A','T','G','C')]*$", read):
+    print("Error! Only letters A,C,T,G allowed!")
+    sys.exit()
+    
 def test_count_kmers_observed():
   '''
   This function is used to test the count kmers of size k function. 
