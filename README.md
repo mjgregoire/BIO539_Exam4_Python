@@ -18,4 +18,4 @@ I have added example output files ("linguistic_complexity.txt", "dataframe.csv")
 * -read CAGGGCTAT -k 6
 * -read TCGTAGGAC -k 1
 
-The script has been tested with py.test (test_exam4.py) and each of the functions passed. 
+The script has passed tests with py.test (test_exam4.py). 
