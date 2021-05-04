@@ -12,9 +12,10 @@ The script will give two output files, one for the linguistic complexity of the 
 The script contains a function to count the observed kmers of size k, the possible kmers of size k, a resulting table of the observed and possible kmers, as well as the linguistic complexity of the entered sequence and k. 
 
 I have added example output files ("linguistic_complexity.txt", "dataframe.csv") to this repository for the following reads and ks:
--read ATTTGGATT -k 3
--read CGGTACGAT -k 2
--read CAGGGCTAT -k 6
--read TCGTAGGAC -k 1
+
+* -read ATTTGGATT -k 3
+* -read CGGTACGAT -k 2
+* -read CAGGGCTAT -k 6
+* -read TCGTAGGAC -k 1
 
 The script has been tested with py.test (test_exam4.py) and each of the functions passed. 
