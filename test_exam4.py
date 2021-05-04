@@ -5,7 +5,7 @@ from exam4 import *
 read = "ATTTGGATT"
 k = 3
 
-#testing if the input read is wrong -this script will only test for the letters of DNA: A, T, G, C
+#testing if the input is wrong -this script will only test for the letters of DNA: A, T, G, C
 import re
 import sys
 #input_str = raw_input("Please provide some info: ")
@@ -13,6 +13,9 @@ if not re.match("^[c('A','T','G','C')]*$", read):
     print("Error! Only letters A,C,T,G allowed!")
     sys.exit()
     
+#testing if the ks are longer than the entered read
+
+
 def test_count_kmers_observed():
   '''
   This function is used to test the count kmers of size k function. 
@@ -38,7 +41,7 @@ def test_create_panda():
   #actual_result = create_panda(read)
   expected_result = pd.DataFrame(list(zip([1,2,3,4,5,6,7,8,9], [3,5,6,6,5,4,3,2,1], [4,8,7,6,5,4,3,2,1])), columns = ['k','observed kmers','possible kmers'])
   expected_result.at['Total', 'observed kmers'] = expected_result['observed kmers'].sum() 
-  expected_result.at['Total', 'possible kmers'] = expected_result['possible kmers'].sum() #this is the expected table 
+  expected_result.at['Total', 'possible kmers'] = expected_result['possible kmers'].sum() #this is the table from exam4.py
   
   create_panda(read).eq(expected_result) #use this pandas way (.eq) to see if the tables are the same instead of assert
 
@@ -50,3 +53,4 @@ def test_calculate_LC():
   actual_result = calculate_LC(read) #call on the function from exam4.py
   expected_result = 0.875
   assert actual_result == expected_result 
+ 
