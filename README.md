@@ -1,6 +1,6 @@
 # Exam4_Python
 
-This script (exam4.py) is used to assess the number of substrings of length k, or k-mers, that are observed and possible for a sequence (termed "read"). It can also determine the linguistic complexity of the kmer, or the number of kmers that are observed for all possible kmer lengths divided bythe total possible kmers. 
+This script (exam4.py) is used to assess the number of substrings of length k, or k-mers, that are observed and possible for a sequence (termed "read"). It can also determine the linguistic complexity of the kmer, or the number of kmers that are observed for all possible kmer lengths divided bythe total possible kmers. For simplicity, this script will only test for the letters of DNA: A, T, G, C.
 
 This script is run in the command line as follows:
 python3 exam4.py -read ATTTGGATT -k 3
