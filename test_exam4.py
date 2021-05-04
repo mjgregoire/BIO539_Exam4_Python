@@ -27,7 +27,7 @@ def test_create_panda():
   This function creates the pandas dataframe for the number of k, observed kmers, and possible kmers
   '''
   #actual_result = create_panda(read)
-  expected_result = pd.DataFrame(list(zip([1,2,3,4,5,6,7,8,9], [3,5,6,6,5,4,3,2,1,35], [4,8,7,6,5,4,3,2,1,40])), columns = ['k','observed kmers','possible kmers'])
+  expected_result = pd.DataFrame(list(zip([1,2,3,4,5,6,7,8,9], [3,5,6,6,5,4,3,2,1], [4,8,7,6,5,4,3,2,1])), columns = ['k','observed kmers','possible kmers'])
   expected_result.at['Total', 'observed kmers'] = expected_result['observed kmers'].sum() 
   expected_result.at['Total', 'possible kmers'] = expected_result['possible kmers'].sum() #this is the expected table 
   
