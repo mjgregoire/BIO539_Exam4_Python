@@ -17,7 +17,9 @@ if __name__ == '__main__':
   read = args.read #the read value will come from what the user enters
   k = int(args.k) #the k value as an integer will be what the user enters
 
-  
+
+#if the k value is less than 1 or greater than the length of the read print error
+
 
 #### Question 1 ####
 ## function to count observed kmers (COUNT KMERS OF SIZE K) ##
@@ -51,8 +53,7 @@ def count_kmers_possible(read, k):
   #return num_kmers
   return num_kmers3
 
-
-
+ 
 #### Question 2 #####
 ## function to create pandas df of possible and observed kmers ##
 
