@@ -1,6 +1,7 @@
 from exam4 import *
 
 #Define what the reads and k you want to test are
+#Based on the chosen read and k, change the expected results throughout the test script
 read = "ATTTGGATT"
 k = 3
 
