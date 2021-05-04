@@ -47,7 +47,9 @@ def count_kmers_possible(read, k):
   num_kmers1 = len(read) - k + 1 #Calculate how many kmers of length k there are
   num_kmers2 = 4**k #Another way to calculate the number of possible kmers
   num_kmers = min(num_kmers1,num_kmers2) #the real number of possible kmers is the lesser of the two 
-  return num_kmers
+  num_kmers3 = max(num_kmers,0)
+  #return num_kmers
+  return num_kmers3
 
 
 
