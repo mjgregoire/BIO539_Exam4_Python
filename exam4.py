@@ -18,8 +18,6 @@ if __name__ == '__main__':
   k = int(args.k) #the k value as an integer will be what the user enters
 
 
-#if the k value is less than 1 or greater than the length of the read print error
-
 
 #### Question 1 ####
 ## function to count observed kmers (COUNT KMERS OF SIZE K) ##
